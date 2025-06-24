@@ -1,8 +1,8 @@
-name: Java Practice CI
+name: Java CI
 
 on:
   push:
-    branches: [ main ] # or any branch you want
+    branches: [ main ]
 
 permissions:
   contents: read            # required for checking out the code
@@ -97,4 +97,5 @@ jobs:
           do
             echo "Running $FILE"
             java "$FILE"
+            echo "<--------------------------------->"
           done
