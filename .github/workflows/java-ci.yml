@@ -81,7 +81,7 @@ jobs:
           done
 
   run:
-    needs: [compile, codeql-analysis]
+    needs: [changed_files, codeql-analysis, compile]
     if: needs.changed_files.outputs.files != ''
     runs-on: ubuntu-latest
     steps:
