@@ -4,6 +4,10 @@ on:
   push:
     branches: [ main ] # or any branch you want
 
+permissions:
+  contents: read            # required for checking out the code
+  security-events: write    # required for CodeQL results
+
 jobs:
   changed_files:
     runs-on: ubuntu-latest

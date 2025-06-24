@@ -15,7 +15,7 @@ public class ArraySumExample {
             sum += number;
         }
 
-        // test5
+        // test6
         System.out.println("\nSum of all array elements = " + sum);
     }
 }
