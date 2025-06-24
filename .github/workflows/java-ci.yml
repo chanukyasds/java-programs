@@ -39,7 +39,7 @@ jobs:
         uses: github/codeql-action/analyze@v3
 
   compile:
-    needs: detect-changes
+    needs: [detect-changes, codeql-analysis]
     if: needs.detect-changes.outputs.files != ''
     runs-on: ubuntu-latest
     steps:
