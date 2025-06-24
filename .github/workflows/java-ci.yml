@@ -95,7 +95,6 @@ jobs:
           IFS=$'\n'
           for FILE in ${{ needs.changed_files.outputs.files }}
           do
-            CLASS_NAME=$(basename "$FILE" .java)
-            echo "Running $CLASS_NAME..."
-            java "$CLASS_NAME"
+            echo "Running $FILE"
+            java "$FILE"
           done

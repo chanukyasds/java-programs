@@ -8,7 +8,7 @@ public class PalindromeExample {
             reversed += str.charAt(i);
         }
 
-        //test6
+        //test7
         // Check if original and reversed strings are the same
         if (str.equals(reversed)) {
             System.out.println(str + " is a palindrome.");
