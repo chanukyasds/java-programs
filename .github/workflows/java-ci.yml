@@ -34,12 +34,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      # ✅ Setup Java
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      # ✅ Init CodeQL
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
           languages: java
+      # ✅ Perform the Analysis
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
+
 
   compile:
     needs: [changed_files, codeql-analysis]
