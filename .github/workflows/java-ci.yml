@@ -14,7 +14,12 @@ jobs:
       - name: Identify changed Java files
         id: find
         run: |
-          CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '\.java$' || true)
+          PARENT=$(git rev-parse HEAD~1 || echo "")
+          if [ -z "$PARENT" ]; then
+            CHANGED_FILES=$(git diff --name-only HEAD | grep '\.java$' || true)
+          else
+            CHANGED_FILES=$(git diff --name-only $PARENT HEAD | grep '\.java$' || true)
+          fi
 
           if [ -z "$CHANGED_FILES" ]; then
             echo "files=" >> $GITHUB_OUTPUT
